@@ -1,7 +1,4 @@
 <h1 style="font-weight:normal">
-  <a href="https://xpo.network">
-    <img src=https://user-images.githubusercontent.com/20287615/34189346-d426d4c2-e4ef-11e7-9da4-cc76a1ed111d.png alt="xposource" width=35>
-  </a>
   &nbsp;xpo.network&nbsp;
 </h1>
 
@@ -80,7 +77,7 @@ $ java -jar build/libs/sourcerer-app.jar
 
 License
 =======
-This app is under the MIT license. See the [LICENSE](https://github.com/sourcerer-io/sourcerer-app/blob/develop/LICENSE.md) for more information.
+This app is under the MIT license. See the [LICENSE](https://github.com/Prism-Labs/xpo-source-app/blob/develop/LICENSE.md) for more information.
 
 Links
 =====
