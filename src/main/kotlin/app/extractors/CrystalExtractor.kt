@@ -1,5 +1,4 @@
-// Copyright 2019 Sourcerer Inc. All Rights Reserved.
-// Author: Anton Maminov (anton.maminov@gmail.com)
+
 
 package app.extractors
 

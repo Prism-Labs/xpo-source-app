@@ -1,6 +1,4 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-// Author: Alexander Surkov (alex@sourcerer.io)
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.hashers
 

@@ -1,11 +1,11 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.model
 
 import app.Protos
 import com.google.protobuf.InvalidProtocolBufferException
 import java.security.InvalidParameterException
+import app.Logger
 
 /**
  * User information.
@@ -19,6 +19,8 @@ data class User (
         repos = proto.reposList.map { repo -> Repo(repo) }
             .toMutableList()
         emails = proto.emailsList.map { email -> UserEmail(email) }.toHashSet()
+		var x: String = getProto().toString()
+	    Logger.info { "Model user Response Start --> $x --> Model user Response  End" }
     }
 
     @Throws(InvalidProtocolBufferException::class)
@@ -34,6 +36,8 @@ data class User (
     }
 
     fun serialize(): ByteArray {
+	    var x: String = getProto().toString()
+	    Logger.info { "Model user Request Start --> $x --> Model user Request  End" }
         return getProto().toByteArray()
     }
 }

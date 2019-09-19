@@ -29,11 +29,11 @@ buildConfig {
     packageName = 'app'
 
     // API.
-    def apiBasePath = project.hasProperty('api') ? api : 'https://sourcerer.io/api/commit'
+    def apiBasePath = project.hasProperty('api') ? api : 'http://localhost:5000'
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
     // Common.
-    buildConfigField 'String', 'PROFILE_URL', 'https://sourcerer.io/'
+    buildConfigField 'String', 'PROFILE_URL', 'https://xpo.network/xposource'
 
     // App version.
     buildConfigField 'int', 'VERSION_CODE', '26'

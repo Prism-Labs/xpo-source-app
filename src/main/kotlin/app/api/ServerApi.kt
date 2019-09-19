@@ -1,5 +1,4 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.api
 
@@ -28,6 +27,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     private var token = ""
 
     private fun cookieRequestInterceptor() = { req: Request ->
+	    req.header(Pair("userName",username))
         if (token.isNotEmpty()) {
             req.header(Pair(HEADER_COOKIE, KEY_TOKEN + token))
         }
@@ -46,7 +46,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     init {
         fuelManager.basePath = BuildConfig.API_BASE_PATH
         fuelManager.addRequestInterceptor { cookieRequestInterceptor() }
-        fuelManager.addResponseInterceptor { cookieResponseInterceptor() }
+        //fuelManager.addResponseInterceptor { cookieResponseInterceptor() }
     }
 
     private val username
@@ -77,7 +77,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     }
 
     private fun createRequestPostUser(user: User): Request {
-        return post("/user").header(getContentTypeHeader())
+        return post("/user/create").header(getContentTypeHeader())
                             .body(user.serialize())
     }
 
@@ -87,7 +87,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     }
 
     private fun createRequestPostCommits(commits: CommitGroup): Request {
-        return post("/commits").header(getContentTypeHeader())
+        return post("/commits/create").header(getContentTypeHeader())
                                .body(commits.serialize())
     }
 
@@ -123,18 +123,19 @@ class ServerApi (private val configurator: Configurator) : Api {
     }
 
     private fun <T> makeRequest(request: Request,
-                                requestName: String,
+                                requestName : String,
                                 parser: (ByteArray) -> T): Result<T> {
         var error: ApiError? = null
         var data: T? = null
 
         try {
-            Logger.debug { "Request $requestName initialized" }
+		    Logger.info { "requestName --> $requestName --> requestName end" }
+            Logger.info { "Request start --> $request --> end" }
             val (_, res, result) = request.responseString()
             val (_, e) = result
             if (e == null) {
-                Logger.debug { "Request $requestName success" }
                 data = parser(res.data)
+				Logger.info { "Request data --> $data --> data end" }                  
             } else {
                 error = ApiError(e)
             }

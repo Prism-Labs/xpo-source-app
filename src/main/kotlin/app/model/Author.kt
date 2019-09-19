@@ -4,9 +4,9 @@
 package app.model
 
 import app.Protos
-import com.google.protobuf.InvalidProtocolBufferException
+import com.google.protobuf.InvalidProtocolBufferException	
 import java.security.InvalidParameterException
-
+import app.Logger
 /**
  * Commit author.
  */
@@ -34,8 +34,11 @@ data class Author(
             .setRepoRehash(repo.rehash)
             .build()
     }
-
-    fun serialize(): ByteArray {
+	
+	
+	fun serialize(): ByteArray {
+	    var x: String=getProto().toString()
+	    Logger.info { "Model Author Request Start --> $x --> Model Author Request  End" }
         return getProto().toByteArray()
     }
 

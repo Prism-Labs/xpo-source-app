@@ -1,6 +1,4 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-// Author: Liubov Yaronskaya (lyaronskaya@sourcerer.io)
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.extractors
 
@@ -27,16 +25,9 @@ class JavascriptExtractor : ExtractorInterface {
     override fun extractLibStats(files: List<DiffFile>): List<CommitStats> {
         val vueExtension = ".vue"
         val svelteExtension = ".svelte"
-        val quasarConf = "quasar.conf.js"
-
         val vueFiles = files.filter { it.path.endsWith(vueExtension) }
         val svelteFiles = files.filter { it.path.endsWith(svelteExtension) }
-        val quasarFile = files.find { it.path.endsWith(quasarConf) }
-        val otherFiles = files.filter {
-            !it.path.endsWith(vueExtension) &&
-            !it.path.endsWith(svelteExtension) &&
-            !it.path.endsWith(quasarConf)
-        }
+        val otherFiles = files.filter { !it.path.endsWith(vueExtension) && !it.path.endsWith(svelteExtension) }
 
         // Add stats from *.vue files.
         val vueStats = listOf(CommitStats(
@@ -54,19 +45,7 @@ class JavascriptExtractor : ExtractorInterface {
             tech = "js.svelte"
         )).filter { it.numLinesAdded > 0 || it.numLinesDeleted > 0 }
 
-        var stats = vueStats + svelteStats + super.extractLibStats(otherFiles)
-        if (quasarFile == null) {
-            return stats;
-        }
-
-        val quasarStats = listOf(CommitStats(
-            numLinesAdded = quasarFile.getAllAdded().size,
-            numLinesDeleted = quasarFile.getAllDeleted().size,
-            type = ExtractorInterface.TYPE_LIBRARY,
-            tech = "js.quasar"
-        )).filter { it.numLinesAdded > 0 || it.numLinesDeleted > 0 }
-
-        return quasarStats + stats;
+        return vueStats + svelteStats + super.extractLibStats(otherFiles)
     }
 
     override fun tokenize(line: String): List<String> {

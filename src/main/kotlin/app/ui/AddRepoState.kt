@@ -66,7 +66,7 @@ class AddRepoState constructor(private val context: Context,
             configurator.saveToFile()
             Logger.print("Successfully processed $path")
         } else {
-            Logger.warn { "No valid git repository found at specified path $path" }
+            Logger.info { "No valid git repository found at specified path $path" }
             Logger.print("Make sure that master branch with at least " +
                     "one commit exists.")
         }

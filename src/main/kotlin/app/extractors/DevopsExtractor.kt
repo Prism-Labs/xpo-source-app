@@ -1,5 +1,4 @@
-// Copyright 2019 Sourcerer Inc. All Rights Reserved.
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.extractors
 

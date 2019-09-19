@@ -1,7 +1,3 @@
-// Copyright 2018 Sourcerer Inc. All Rights Reserved.
-// Author: Alexander Surkov (alex@sourcerer.io),
-
-// Inspired by GitHub Liguist heuristics (https://github.com/github/linguist).
 
 package app.hashers
 

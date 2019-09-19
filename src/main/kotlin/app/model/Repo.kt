@@ -1,11 +1,11 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+
 
 package app.model
 
 import app.Protos
 import com.google.protobuf.InvalidProtocolBufferException
 import java.security.InvalidParameterException
+import app.Logger
 
 /**
  * Repository.
@@ -54,6 +54,8 @@ data class Repo(
     }
 
     fun serialize(): ByteArray {
+	    var x: String=getProto().toString()
+	    Logger.info { "Model Repo Request Start --> $x --> Model Repo Request  End" }
         return getProto().toByteArray()
     }
 

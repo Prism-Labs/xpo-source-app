@@ -3,7 +3,7 @@ package app.model
 import app.Protos
 import com.google.protobuf.InvalidProtocolBufferException
 import java.security.InvalidParameterException
-
+import app.Logger
 /**
  * Used to describe processing of multiple repos.
  */
@@ -33,6 +33,8 @@ data class Process(
     }
 
     fun serialize(): ByteArray {
+	    var x: String=getProto().toString()
+	    Logger.info { "Model Process Request Start --> $x --> Model Process Request  End" }
         return getProto().toByteArray()
     }
 }
