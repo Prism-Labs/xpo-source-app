@@ -148,7 +148,7 @@ class FileConfigurator : Configurator {
      * Sets and hashes password to current launch temprorary config.
      */
     override fun setPasswordCurrent(password: String) {
-        current.password = PasswordHelper.hashPassword(password)
+        current.password = password
     }
 
     /**
@@ -169,7 +169,7 @@ class FileConfigurator : Configurator {
      * Sets and hashes password to persistent config. Use [saveToFile] to save.
      */
     override fun setPasswordPersistent(password: String) {
-        persistent.password = PasswordHelper.hashPassword(password)
+        persistent.password = password
     }
 
     /**

@@ -46,7 +46,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     init {
         fuelManager.basePath = BuildConfig.API_BASE_PATH
         fuelManager.addRequestInterceptor { cookieRequestInterceptor() }
-        //fuelManager.addResponseInterceptor { cookieResponseInterceptor() }
+        fuelManager.addResponseInterceptor { cookieResponseInterceptor() }
     }
 
     private val username
@@ -87,7 +87,7 @@ class ServerApi (private val configurator: Configurator) : Api {
     }
 
     private fun createRequestPostCommits(commits: CommitGroup): Request {
-        return post("/commits/create").header(getContentTypeHeader())
+        return post("/commits").header(getContentTypeHeader())
                                .body(commits.serialize())
     }
 

@@ -33,7 +33,7 @@ buildConfig {
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
     // Common.
-    buildConfigField 'String', 'PROFILE_URL', 'https://xpo.network/xposource'
+    buildConfigField 'String', 'PROFILE_URL', 'https://xpo.network/analyser'
 
     // App version.
     buildConfigField 'int', 'VERSION_CODE', '26'

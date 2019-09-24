@@ -31,9 +31,9 @@ class UpdateRepoState constructor(private val context: Context,
         val heartbeatTimer = runHeartbeatTimer(localRepos)
         for (repo in localRepos) {
             try {
-                Logger.print("Hashing $repo repository...", indentLine = true)
+                Logger.info{"Hashing $repo repository..."}
                 RepoHasher(api, configurator).update(repo)
-                Logger.print("Hashing $repo completed.")
+                Logger.info{"Hashing $repo completed."}
             } catch (e: HashingException) {
                 e.errors.forEach { error ->
                     Logger.error(error, "Error while hashing")

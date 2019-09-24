@@ -52,15 +52,15 @@ class Main(argv: Array<String>) {
         val jc: JCommander = JCommander.newBuilder()
             .programName("sourcerer")  // Used for usage method.
             .addObject(options)
-            .addCommand(commandAdd.name, commandAdd)
-            .addCommand(commandConfig.name, commandConfig)
-            .addCommand(commandList.name, commandList)
-            .addCommand(commandRemove.name, commandRemove)
+            .addCommand(commandAdd.name, commandAdd)  //add 
+            .addCommand(commandConfig.name, commandConfig) //config
+            .addCommand(commandList.name, commandList) //list
+            .addCommand(commandRemove.name, commandRemove) //remove
             .build()
 
         try {
             jc.parse(*argv)
-            options.password = PasswordHelper.hashPassword(options.password)
+            options.password = options.password
             configurator.setOptions(options)
 
             if (options.help) {

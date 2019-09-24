@@ -15,7 +15,7 @@ object PasswordHelper {
             ""
         }
         else {
-            DigestUtils.sha256Hex(password)
+            password
         }
     }
 

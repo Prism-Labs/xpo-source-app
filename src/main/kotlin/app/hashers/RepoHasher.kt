@@ -113,6 +113,7 @@ class RepoHasher(private val api: Api,
             if (errors.isNotEmpty()) {
                 throw HashingException(errors)
             }
+			Logger.info{ "server repo -->$serverRepo --> end" }
             Logger.info(Logger.Events.HASHING_REPO_SUCCESS)
                 { "Hashing repo completed" }
             updateProcess(processEntryId, Api.PROCESS_STATUS_COMPLETE)

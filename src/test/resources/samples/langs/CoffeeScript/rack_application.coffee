@@ -172,10 +172,10 @@ module.exports = class RackApplication
         bufferLines @pool.stderr, (line) => @logger.warning line
 
         @pool.on "worker:spawn", (process) =>
-          @logger.debug "nack worker #{process.child.pid} spawned"
+          @Logger.info "nack worker #{process.child.pid} spawned"
 
         @pool.on "worker:exit", (process) =>
-          @logger.debug "nack worker exited"
+          @Logger.info "nack worker exited"
 
       # Invoke and remove all queued callbacks, passing along the
       # error, if any.
