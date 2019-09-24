@@ -1,5 +1,4 @@
-// Copyright 2017 Sourcerer Inc. All Rights Reserved.
-
+//
 buildscript {
     ext.kotlin_version = '1.2.31'
     repositories {
@@ -140,5 +139,5 @@ jar {
         exclude "META-INF/*.RSA"
     }
 
-    baseName 'sourcerer-app'
+    baseName 'analyser-app'
 }

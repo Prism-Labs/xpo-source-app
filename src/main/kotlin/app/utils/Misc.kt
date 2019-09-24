@@ -1,5 +1,5 @@
-// Copyright 2018 Sourcerer Inc. All Rights Reserved.
-// Author: Anatoly Kislov (anatoly@sourcerer.io)
+//
+// //
 
 package app.utils
 

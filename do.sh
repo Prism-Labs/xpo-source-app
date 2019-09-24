@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Copyright 2017 Sourcerer, Inc. All Rights Reserved.
-# Author: Maxim Rusak (maxim@sourcerer.io)
 
 set -x
 
