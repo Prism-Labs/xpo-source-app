@@ -28,7 +28,7 @@ buildConfig {
     packageName = 'app'
 
     // API.
-    def apiBasePath = project.hasProperty('api') ? api : 'http://localhost:5000'
+    def apiBasePath = project.hasProperty('api') ? api : 'http://127.0.0.1:5000'
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
     // Common.

@@ -34,7 +34,7 @@ For closed/private source repos, You will need a new account, which you can get 
 * Bash for Windows (`git bash` should suffice)
 * gradle
 
-After matching above requirements , follow belwo commands
+After matching above requirements , follow below commands
 
 Build
 =====

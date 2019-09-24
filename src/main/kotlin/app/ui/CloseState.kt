@@ -13,7 +13,7 @@ class CloseState : ConsoleState {
         Logger.print("For more info run application with flag --help.")
         // TODO(anatoly): Check for problems for display support message.
         Logger.print("Feel free to contact us on any problem by " +
-            "support@sourcerer.io.")
+            "support@xpo.network")
     }
 
     override fun next() {

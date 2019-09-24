@@ -18,9 +18,9 @@ class ServerApi (private val configurator: Configurator) : Api {
         private val HEADER_VERSION_CODE = "app-version-code"
         private val HEADER_CONTENT_TYPE = "Content-Type"
         private val HEADER_CONTENT_TYPE_PROTO = "application/octet-stream"
-        private val HEADER_COOKIE = "Cookie"
+        private val HEADER_COOKIE = "Authorization"
         private val HEADER_SET_COOKIE = "Set-Cookie"
-        private val KEY_TOKEN = "Token="
+        private val KEY_TOKEN = "Token "
     }
 
     val fuelManager = FuelManager()
@@ -37,8 +37,11 @@ class ServerApi (private val configurator: Configurator) : Api {
     private fun cookieResponseInterceptor() = { _: Request, res: Response ->
         val newToken = res.headers[HEADER_SET_COOKIE]
             ?.find { it.startsWith(KEY_TOKEN) }
+        Logger.info{"newToken--->>> $newToken"}
+
         if (newToken != null && newToken.isNotBlank()) {
-            token = newToken.substringAfter(KEY_TOKEN).substringBefore(';')
+            token = newToken.substringAfter(KEY_TOKEN)
+            Logger.info{"token -->> $token"}
         }
         res
     }
@@ -131,8 +134,12 @@ class ServerApi (private val configurator: Configurator) : Api {
         try {
 		    Logger.info { "requestName --> $requestName --> requestName end" }
             Logger.info { "Request start --> $request --> end" }
+            Logger.info {"request.responseString() $request.responseString()"}
+           
             val (_, res, result) = request.responseString()
             val (_, e) = result
+            Logger.info {"res resresresres  $res"}
+            Logger.info {"e e e e e    $e"}
             if (e == null) {
                 data = parser(res.data)
 				Logger.info { "Request data --> $data --> data end" }                  
@@ -144,14 +151,13 @@ class ServerApi (private val configurator: Configurator) : Api {
         } catch (e: InvalidParameterException) {
             error = ApiError(e)
         }
-
+        Logger.info { " error --> $error --> error" }    
         return Result(data, error)
     }
 
     private fun getVersionCodeHeader(): Pair<String, String> {
         return Pair(HEADER_VERSION_CODE, BuildConfig.VERSION_CODE.toString())
     }
-
     private fun getContentTypeHeader(): Pair<String, String> {
         return Pair(HEADER_CONTENT_TYPE, HEADER_CONTENT_TYPE_PROTO)
     }

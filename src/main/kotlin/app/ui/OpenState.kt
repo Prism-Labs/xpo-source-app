@@ -14,12 +14,12 @@ class OpenState constructor(private val context: Context,
     : ConsoleState {
     override fun doAction() {
         if (!configurator.isValidCredentials()) {
-            Logger.print("Sourcerer hashes your git repositories into " +
+            Logger.print("Analyser hashes your git repositories into " +
                 "intelligent engineering profiles.")
             Logger.print("If you don't have an account, please, sign up at " +
-                    "https://sourcerer.io/join")
+                    "https://xpo.network/create-account")
         } else {
-            Logger.print("Sourcerer. Use flag --help to list available " +
+            Logger.print("Analyser. Use flag --help to list available " +
                 "commands.")
         }
     }
