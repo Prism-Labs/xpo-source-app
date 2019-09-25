@@ -28,7 +28,7 @@ buildConfig {
     packageName = 'app'
 
     // API.
-    def apiBasePath = project.hasProperty('api') ? api : 'analyser.xpo.network'
+    def apiBasePath = project.hasProperty('api') ? api : 'https://analyser.xpo.network'
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
     // Common.
