@@ -44,7 +44,7 @@ class AuthState constructor(private val context: Context,
     }
 
     fun getUsername() {
-        Logger.print("Enter username:")
+        Logger.print("Enter email:")
         username = readLine() ?: ""
         configurator.setUsernameCurrent(username)
     }
@@ -84,7 +84,7 @@ class AuthState constructor(private val context: Context,
             configurator.setUser(user)
 
             Logger.print("Signed in successfully. Your profile page is " +
-                BuildConfig.PROFILE_URL + configurator.getUsername())
+                BuildConfig.PROFILE_URL + configurator.getXpoUsername())
 
             saveCredentialsIfChanged()
             Logger.username = configurator.getUsername()

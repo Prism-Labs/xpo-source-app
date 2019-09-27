@@ -21,11 +21,12 @@ class ServerApi (private val configurator: Configurator) : Api {
         private val HEADER_COOKIE = "Authorization"
         private val HEADER_SET_COOKIE = "Set-Cookie"
         private val KEY_TOKEN = "Token "
+        
     }
 
     val fuelManager = FuelManager()
     private var token = ""
-
+    private var xpousername = ""
     private fun cookieRequestInterceptor() = { req: Request ->
 	    req.header(Pair("userName",username))
         if (token.isNotEmpty()) {
@@ -37,11 +38,16 @@ class ServerApi (private val configurator: Configurator) : Api {
     private fun cookieResponseInterceptor() = { _: Request, res: Response ->
         val newToken = res.headers[HEADER_SET_COOKIE]
             ?.find { it.startsWith(KEY_TOKEN) }
-        Logger.info{"newToken--->>> $newToken"}
+        
+        val xpoUserName = res.headers["Set-Xpo-Username"]
+        ?.firstOrNull()
 
+        if(xpoUserName !=null){
+            setXpoUsername(xpoUserName)
+        }
         if (newToken != null && newToken.isNotBlank()) {
             token = newToken.substringAfter(KEY_TOKEN)
-            Logger.info{"token -->> $token"}
+            
         }
         res
     }
@@ -55,9 +61,13 @@ class ServerApi (private val configurator: Configurator) : Api {
     private val username
         get() = configurator.getUsername()
 
+
     private val password
         get() = configurator.getPassword()
 
+    private fun setXpoUsername(xpouname: String){
+          configurator.setXpoUsername(xpouname)
+    }
     private fun post(path: String): Request {
         return fuelManager.request(Method.POST, path)
     }
@@ -132,17 +142,15 @@ class ServerApi (private val configurator: Configurator) : Api {
         var data: T? = null
 
         try {
-		    Logger.info { "requestName --> $requestName --> requestName end" }
-            Logger.info { "Request start --> $request --> end" }
-            Logger.info {"request.responseString() $request.responseString()"}
+		    // Logger.info { "requestName --> $requestName --> requestName end" }
+            // Logger.info { "Request start --> $request --> end" }
+            // Logger.info {"request.responseString() $request.responseString()"}
            
             val (_, res, result) = request.responseString()
             val (_, e) = result
-            Logger.info {"res resresresres  $res"}
-            Logger.info {"e e e e e    $e"}
             if (e == null) {
                 data = parser(res.data)
-				Logger.info { "Request data --> $data --> data end" }                  
+				// Logger.info { "Request data --> $data --> data end" }                  
             } else {
                 error = ApiError(e)
             }
@@ -151,7 +159,7 @@ class ServerApi (private val configurator: Configurator) : Api {
         } catch (e: InvalidParameterException) {
             error = ApiError(e)
         }
-        Logger.info { " error --> $error --> error" }    
+        // Logger.info { " error --> $error --> error" }    
         return Result(data, error)
     }
 
