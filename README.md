@@ -3,11 +3,7 @@
 </h1>
 
 A visual profile for software engineers.
-<br>
 
-<p align="center">
-  <img alt="sergey" src="https://user-images.githubusercontent.com/20287615/47371068-c70f5a00-d6ef-11e8-8988-dcdca71bf83c.gif">
-</p>
 
 Features
 ========
