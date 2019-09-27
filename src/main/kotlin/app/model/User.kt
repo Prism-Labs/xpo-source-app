@@ -20,7 +20,7 @@ data class User (
             .toMutableList()
         emails = proto.emailsList.map { email -> UserEmail(email) }.toHashSet()
 		var x: String = getProto().toString()
-	    Logger.info { "Model user Response Start --> $x --> Model user Response  End" }
+	   // Logger.info { "Model user Response Start --> $x --> Model user Response  End" }
     }
 
     @Throws(InvalidProtocolBufferException::class)
@@ -37,7 +37,7 @@ data class User (
 
     fun serialize(): ByteArray {
 	    var x: String = getProto().toString()
-	    Logger.info { "Model user Request Start --> $x --> Model user Request  End" }
+	   // Logger.info { "Model user Request Start --> $x --> Model user Request  End" }
         return getProto().toByteArray()
     }
 }

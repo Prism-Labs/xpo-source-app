@@ -8,6 +8,7 @@ import app.utils.Options
 
 class MockConfigurator(var mockUsername: String = "",
                        var mockPassword: String = "",
+                       var mockXpoUsername:String = "",
                        var mockIsValidCredentials: Boolean = true,
                        var mockIsFirstLaunch: Boolean = true,
                        var mockUser: User = User(),
@@ -84,4 +85,11 @@ class MockConfigurator(var mockUsername: String = "",
     override fun saveToFile() {}
 
     override fun resetAndSave() {}
+    override fun setXpoUsername(xpousername:String){
+        mockCurrent.xpoUserName = xpousername
+    }
+    override fun getXpoUsername(): String{
+        return mockXpoUsername
+    }
+
 }

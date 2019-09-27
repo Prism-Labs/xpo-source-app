@@ -17,6 +17,12 @@ class Options {
                order = 1)
     var password: String = ""
 
+    // Sourcerer account password.
+    @Parameter(names = arrayOf("-p", "--password"),
+               description = "Sourcerer account password",
+               order = 1)
+    var password: String = ""
+
     // List options and commands.
     @Parameter(names = arrayOf("-h", "--help"),
                description = "List options and commands",
