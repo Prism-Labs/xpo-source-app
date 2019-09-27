@@ -25,4 +25,6 @@ interface Configurator {
     fun loadFromFile()
     fun saveToFile()
     fun resetAndSave()
+    fun setXpoUsername(xpousername:String)
+    fun getXpoUsername():String
 }

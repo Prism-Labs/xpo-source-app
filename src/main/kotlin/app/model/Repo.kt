@@ -55,7 +55,7 @@ data class Repo(
 
     fun serialize(): ByteArray {
 	    var x: String=getProto().toString()
-	    Logger.info { "Model Repo Request Start --> $x --> Model Repo Request  End" }
+	    // Logger.info { "Model Repo Request Start --> $x --> Model Repo Request  End" }
         return getProto().toByteArray()
     }
 

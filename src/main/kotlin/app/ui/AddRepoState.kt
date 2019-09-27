@@ -50,7 +50,7 @@ class AddRepoState constructor(private val context: Context,
             }
         }
 
-        Logger.info(Logger.Events.CONFIG_SETUP) { "Config setup" }
+       // Logger.info(Logger.Events.CONFIG_SETUP) { "Config setup" }
     }
 
     private fun processPath(path: Path) {

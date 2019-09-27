@@ -266,4 +266,12 @@ class FileConfigurator : Configurator {
         persistent = Config()
         saveToFile()
     }
+
+    override fun setXpoUsername(xpousername:String){
+        config.xpoUserName = xpousername
+    }
+
+    override fun getXpoUsername(): String {
+        return config.xpoUserName
+    }
 }
