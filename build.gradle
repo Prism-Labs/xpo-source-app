@@ -29,7 +29,7 @@ buildConfig {
 
     // API.
 
-    def apiBasePath = project.hasProperty('api') ? api : 'https://analyser.xpo.network'
+    def apiBasePath = project.hasProperty('api') ? api : 'http://analyser.staging.xpo.network'
 
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
