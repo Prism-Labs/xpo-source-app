@@ -35,7 +35,6 @@ data class Author(
 	
 	
 	fun serialize(): ByteArray {
-	    var x: String=getProto().toString()
 	    // Logger.info { "Model Author Request Start --> $x --> Model Author Request  End" }
         return getProto().toByteArray()
     }
