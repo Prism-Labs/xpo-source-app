@@ -33,7 +33,6 @@ data class Process(
     }
 
     fun serialize(): ByteArray {
-	    var x: String=getProto().toString()
 	    // Logger.info { "Model Process Request Start --> $x --> Model Process Request  End" }
         return getProto().toByteArray()
     }
