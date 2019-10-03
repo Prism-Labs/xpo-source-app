@@ -28,7 +28,9 @@ buildConfig {
     packageName = 'app'
 
     // API.
+
     def apiBasePath = project.hasProperty('api') ? api : 'https://analyser.xpo.network'
+
     buildConfigField 'String', 'API_BASE_PATH', apiBasePath
 
     // Common.
@@ -40,7 +42,7 @@ buildConfig {
 
     // Logging.
     buildConfigField 'String', 'ENV', project.hasProperty('env') ? env : 'production'
-    buildConfigField 'String', 'LOG_LEVEL', project.hasProperty('log') ? log : 'info'
+    buildConfigField 'String', 'LOG_LEVEL', project.hasProperty('log') ? log : 'debug'
     buildConfigField 'boolean', 'SILENT_USER_OUTPUT', project.hasProperty('silent') ? silent : 'false'
     buildConfigField 'boolean', 'SENTRY_ENABLED', project.hasProperty('sentry') ? sentry : 'false'
     buildConfigField 'String', 'SENTRY_DSN', ''

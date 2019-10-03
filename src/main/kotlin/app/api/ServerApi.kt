@@ -140,7 +140,7 @@ class ServerApi (private val configurator: Configurator) : Api {
                                 parser: (ByteArray) -> T): Result<T> {
         var error: ApiError? = null
         var data: T? = null
-
+                                     
         try {
 		    // Logger.info { "requestName --> $requestName --> requestName end" }
             // Logger.info { "Request start --> $request --> end" }
@@ -150,7 +150,8 @@ class ServerApi (private val configurator: Configurator) : Api {
             val (_, e) = result
             if (e == null) {
                 data = parser(res.data)
-				// Logger.info { "Request data --> $data --> data end" }                  
+               
+				// Logger.debug { "Request data --> $data --> data end" }                  
             } else {
                 error = ApiError(e)
             }
@@ -159,7 +160,9 @@ class ServerApi (private val configurator: Configurator) : Api {
         } catch (e: InvalidParameterException) {
             error = ApiError(e)
         }
-        // Logger.info { " error --> $error --> error" }    
+        if(requestName === "test"){
+            Logger.debug { " requestName --> $requestName --> requestName" }    
+        }
         return Result(data, error)
     }
 
