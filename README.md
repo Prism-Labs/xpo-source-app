@@ -34,7 +34,9 @@ After matching above requirements , follow below commands
 Usage
 =====
 To install run the following command in bash:
+````
 $ curl -sSL https://xpo-img.s3-us-west-2.amazonaws.com/install.sh | bash
+```
 Use parameter --help for additional info.
 
 Build
