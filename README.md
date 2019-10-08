@@ -24,13 +24,21 @@ Get started
  
 For closed/private source repos, You will need a new account, which you can get at [https://xpo.network/create-account](https://xpo.network/create-account).
 
-
 * Linux or macOS or Windows
 * Java 8+ Platform ([JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) for Linux and Windows or [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) for macOS)
 * Bash for Windows (`git bash` should suffice)
 * gradle
 
 After matching above requirements , follow below commands
+
+Usage
+=====
+To install run the following command in bash:
+
+```
+$ curl -sSL https://xpo-img.s3-us-west-2.amazonaws.com/install.sh | bash
+```
+Use parameter --help for additional info.
 
 Build
 =====
