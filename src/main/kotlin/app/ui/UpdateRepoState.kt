@@ -44,7 +44,7 @@ class UpdateRepoState constructor(private val context: Context,
 
         Logger.print("The repositories have been hashed.")
         Logger.print("Take a look at the updates in your profile at " +
-            BuildConfig.PROFILE_URL + configurator.getUsername(),
+            BuildConfig.PROFILE_URL + configurator.getXpoUsername(),
             indentLine = true)
         Logger.info(Logger.Events.HASHING_SUCCESS) { "Hashing success" }
     }
