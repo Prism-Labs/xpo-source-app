@@ -154,7 +154,7 @@ class Main(argv: Array<String>) {
     private fun doSetup() {
         if (!configurator.isFirstLaunch()) {
             if (UiHelper.confirm("Are you sure that you want to setup "
-                + "Sourcerer again?", defaultIsYes = false)) {
+                + "Analyser again?", defaultIsYes = false)) {
                 configurator.resetAndSave()
             }
         }
@@ -162,12 +162,11 @@ class Main(argv: Array<String>) {
     }
 
     private fun showHelp(jc: JCommander) {
-        Logger.print("Sourcerer hashes your git repositories into intelligent "
+        Logger.print("Analyser hashes your git repositories into intelligent "
             + "engineering profiles.")
         Logger.print("If you don't have an account, please, proceed to " +
-            "https://sourcerer.io/join")
-        Logger.print("More info at https://sourcerer.io and " +
-            "https://github.com/sourcerer-io")
+            "https://xpo.network/create-account")
+        Logger.print("More info at https://xpo.network and ")
         jc.usage()  // Will show detailed info about usage based on annotations.
     }
 }
