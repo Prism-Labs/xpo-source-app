@@ -49,9 +49,9 @@ buildConfig {
     buildConfigField 'boolean', 'PRINT_STACK_TRACE', 'false'
 
     // Google Analytics.
-    buildConfigField 'String', 'GA_BASE_PATH', 'https://www.google-analytics.com'
-    buildConfigField 'String', 'GA_TRACKING_ID', 'UA-'
-    buildConfigField 'boolean', 'IS_GA_ENABLED', 'true'
+    buildConfigField 'String', 'GA_BASE_PATH', 'DO NOT WORY ,NOT TRACKING ANYTHING'
+    buildConfigField 'String', 'GA_TRACKING_ID', ''
+    buildConfigField 'boolean', 'IS_GA_ENABLED', 'false'
 
     // Models storage path.
     buildConfigField 'String', 'LIBRARY_MODELS_URL', 'https://storage.googleapis.com/sourcerer-app/library-models/v2/'
