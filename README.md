@@ -1,8 +1,7 @@
 <h1 style="font-weight:normal">
-  &nbsp;xpo.network&nbsp;
+  &nbsp;xpo.network&nbsp;code&nbsp;analyser
 </h1>
 
-A visual profile for software engineers.
 
 
 Features
