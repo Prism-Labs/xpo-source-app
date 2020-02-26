@@ -5,15 +5,15 @@ package app.utils
 import com.beust.jcommander.Parameter
 
 class Options {
-    // Sourcerer account username.
+    // Xpo account username.
     @Parameter(names = arrayOf("-u", "--username"),
-               description = "Sourcerer account username",
+               description = "Xpo account username",
                order = 0)
     var username: String = ""
 
     // Sourcerer account password.
     @Parameter(names = arrayOf("-p", "--password"),
-               description = "Sourcerer account password",
+               description = "Xpo account password",
                order = 1)
     var password: String = ""
 
@@ -31,7 +31,7 @@ class Options {
 
     // Uninstall. Runs by install script, added to display info in help.
     @Parameter(names = arrayOf("--uninstall"),
-               description = "Remove Sourcerer App",
+               description = "Remove Analyser App",
                order = 4)
     var uninstall: Boolean = false
 }

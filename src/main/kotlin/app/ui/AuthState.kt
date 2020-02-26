@@ -73,7 +73,7 @@ class AuthState constructor(private val context: Context,
             val (_, error) = api.authorize()
             if (error.isWithServerCode(Api.OUT_OF_DATE)) {
                 Logger.print("App is out of date. Please get new version at " +
-                    "https://sourcerer.io")
+                    "https://xpo.network")
                 retry = false
                 return false
             }

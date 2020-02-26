@@ -1,13 +1,13 @@
 
 
-echo "Installing sourcerer app.."
+echo "Installing the app.."
 SERVER=$SERVER_EXT
 DOWNLOAD_URL=$SERVER/app/download
-SCRIPT_DIR=$HOME/.sourcerer
+SCRIPT_DIR=$HOME/.analyser
 JAR_DIR=$SCRIPT_DIR
 
 if [ -f $SCRIPT_DIR/sourcerer ] ; then
-  read -p "Previous version of sourcerer is detected. Reinstall it? [Y/n] " yesno < /dev/tty
+  read -p "Previous version of analyser is detected. Reinstall it? [Y/n] " yesno < /dev/tty
   if [ "$yesno" ] && [ "$yesno" = "n" ] ; then
     echo "Exiting"
     exit
@@ -16,20 +16,20 @@ fi
 
 mkdir -p $SCRIPT_DIR
 mkdir -p $JAR_DIR
-curl -s $DOWNLOAD_URL > $JAR_DIR/sourcerer.jar
+curl -s $DOWNLOAD_URL > $JAR_DIR/analyser.jar
 
-cat <<EOF > $SCRIPT_DIR/sourcerer
+cat <<EOF > $SCRIPT_DIR/analyser
 
 
 if [ "\$1" = "--uninstall" ] ; then
-  read -p "The script will uninstall sourcerer app. Proceed? [Y/n] " yesno < /dev/tty
+  read -p "The script will uninstall analyser app. Proceed? [Y/n] " yesno < /dev/tty
   if [ "$yesno" ] && [ "$yesno" = "n" ] ; then
     echo "Exiting"
     exit
   fi
 
-  rm -f /usr/local/bin/sourcerer
-  rm $SCRIPT_DIR/sourcerer
+  rm -f /usr/local/bin/analyser
+  rm $SCRIPT_DIR/analyser
   rm -r $JAR_DIR
 
   echo "Done!"
@@ -70,20 +70,20 @@ if [[ \$VERSION = 9 ]] ; then
 elif [[ \$VERSION = 10 ]] ; then
   java --add-opens java.base/java.nio=ALL-UNNAMED -jar $JAR_DIR/sourcerer.jar "\$@"
 else
-  java -jar $JAR_DIR/sourcerer.jar "\$@"
+  java -jar $JAR_DIR/analyser.jar "\$@"
 fi
 EOF
 
-chmod +x $SCRIPT_DIR/sourcerer
+chmod +x $SCRIPT_DIR/analyser
 
 {
-  rm -f /usr/local/bin/sourcerer 2> /dev/null &&
-  ln -s $SCRIPT_DIR/sourcerer /usr/local/bin/sourcerer 2> /dev/null &&
+  rm -f /usr/local/bin/analyser 2> /dev/null &&
+  ln -s $SCRIPT_DIR/analyser /usr/local/bin/analyser 2> /dev/null &&
   echo 'Done!' &&
-  echo 'Run sourcerer to start hashing your repos!'
+  echo 'Run analyser to start hashing your repos!'
 } || {
-  echo 'We installed app to ~/.sourcerer/sourcerer.'
+  echo 'We installed app to ~/.analyser/analyser.'
   echo 'You can add it to $PATH or run specified command to finish installation:'
-  echo "sudo ln -s $SCRIPT_DIR/sourcerer /usr/local/bin/sourcerer"
-  echo 'Then run sourcerer to start hashing your repos!'
+  echo "sudo ln -s $SCRIPT_DIR/analyser /usr/local/bin/analyser"
+  echo 'Then run analyser to start hashing your repos!'
 }

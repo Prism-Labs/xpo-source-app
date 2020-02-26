@@ -6,7 +6,7 @@ import com.beust.jcommander.Parameter
 import com.beust.jcommander.Parameters
 
 @Parameters(separators = "=",
-            commandDescription = "Configure Sourcerer app")
+            commandDescription = "Configure Analyser app")
 class CommandConfig {
     // Command name for CLI.
     val name = "config"

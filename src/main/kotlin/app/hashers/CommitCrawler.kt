@@ -47,7 +47,7 @@ object CommitCrawler {
     private const val LOCAL_HEAD = "HEAD"
     private val REFS = listOf(REMOTE_HEAD, REMOTE_MASTER_BRANCH,
                               LOCAL_MASTER_BRANCH, LOCAL_HEAD)
-    private val CONF_FILE_PATH = ".sourcerer-conf"
+    private val CONF_FILE_PATH = ".analyser-conf"
     private val MAX_DIFF_SIZE = 600000
     private val coauthoredRegex = Regex("""Co-authored-by: (.+) <(.+)>""")
 

@@ -9,7 +9,7 @@ import java.nio.file.Paths
 import java.nio.file.Path
 
 /*
- * Wrapper around Java Path and File classes to work the sourcerer's files.
+ * Wrapper around Java Path and File classes to work the analyser's files.
  */
 object FileHelper {
     private val dirName = "data"

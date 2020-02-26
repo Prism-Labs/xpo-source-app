@@ -1,17 +1,17 @@
 # Contribution
 
-We welcome contributions to [Sourcerer App](https://github.com/sourcerer-io/sourcerer-app) by the community.
+We welcome contributions to [Analyser App](https://github.com/Prism-Labs/xpo-source-app) by the community.
 
-See [README](https://github.com/sourcerer-io/sourcerer-app) for more information about prerequirements and building project.
+See [README](https://github.com/Prism-Labs/xpo-source-app) for more information about prerequirements and building project.
 
 ## How to report a problem
 
-Please search before creating a new issue. Feel free to add issues related to the app or [sourcerer](https://sourcerer.io) site.
+Please search before creating a new issue. Feel free to add issues related to the app or [xpo analyser](https://xpo.network) site.
 
 ## Submitting сhanges
 
-* Open a new issue in the [issue tracker](https://github.com/sourcerer-io/sourcerer-app/issues).
-* Fork and clone the repo with `git clone https://github.com/your-username/sourcerer-app.git`.
+* Open a new issue in the [issue tracker](https://github.com/Prism-Labs/xpo-source-app/issues).
+* Fork and clone the repo with `git clone https://github.com/your-username/analyser.git`.
 * Create a new branch based off the `develop` branch.
 * Make changes.
 * Make sure all tests pass.
@@ -50,4 +50,4 @@ fix: program exit is prevented when button is pressed (COMP-1, #123)
 We are using [Kotlin Coding Conventions](https://kotlinlang.org/docs/reference/coding-conventions.html).
 
 ## Code of conduct
-We value input from each member of the community, however we urge you to abide by [code of conduct](https://github.com/sourcerer-io/sourcerer-app/blob/master/CODE_OF_CONDUCT.md).
+We value input from each member of the community, however we urge you to abide by [code of conduct](https://github.com/Prism-Labs/xpo-source-app/blob/master/CODE_OF_CONDUCT.md).

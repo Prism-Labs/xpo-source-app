@@ -50,7 +50,7 @@ class Main(argv: Array<String>) {
         val commandList = CommandList()
         val commandRemove = CommandRemove()
         val jc: JCommander = JCommander.newBuilder()
-            .programName("sourcerer")  // Used for usage method.
+            .programName("analyser")  // Used for usage method.
             .addObject(options)
             .addCommand(commandAdd.name, commandAdd)  //add 
             .addCommand(commandConfig.name, commandConfig) //config
